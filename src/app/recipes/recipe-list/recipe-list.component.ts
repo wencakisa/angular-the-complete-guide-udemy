@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 import { Recipe } from '../recipe.model';
 
@@ -9,6 +9,13 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeListComponent {
   recipes: Recipe[] = [
+    new Recipe('Test recipe', 'description', 'https://picsum.photos/700'),
+    new Recipe('Test recipe', 'description', 'https://picsum.photos/700'),
     new Recipe('Test recipe', 'description', 'https://picsum.photos/700')
   ];
+  @Output() onRecipeSelectCallback = new EventEmitter<Recipe>();
+
+  onRecipeSelected(recipe: Recipe) {
+    this.onRecipeSelectCallback.emit(recipe);
+  }
 }

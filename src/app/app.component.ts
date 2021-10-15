@@ -5,10 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  selectedItem: string;
-
-  onHeaderItemSelect(item: string) {
-    this.selectedItem = item;
-  }
-}
+export class AppComponent {}

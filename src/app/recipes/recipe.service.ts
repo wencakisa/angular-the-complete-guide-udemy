@@ -10,14 +10,16 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 export class RecipeService {
   private recipes: Recipe[] = [
     new Recipe(
+      1,
       'Schnitzel',
-      'description',
+      'German spicy non-spicy fatty thing',
       'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG',
       [new Ingredient('Meat', 1), new Ingredient('French fries', 3)]
     ),
     new Recipe(
+      2,
       'Skaptoburger',
-      'description',
+      'Best burgers in town!',
       'https://licatanagrada.com/wp-content/uploads/2020/06/skaptoburger-26.jpg',
       [new Ingredient('Bun', 2), new Ingredient('Cheddar', 2)]
     )
@@ -29,6 +31,10 @@ export class RecipeService {
 
   getRecipes() {
     return new Array(...this.recipes);
+  }
+
+  getRecipeById(id: number) {
+    return this.recipes.find((r: Recipe) => r.id === id);
   }
 
   addIngredientsToShoppingList(recipe: Recipe) {
